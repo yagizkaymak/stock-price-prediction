@@ -17,8 +17,17 @@ def create_sliding_windows(input_list, stride=4):
         yield window
 # end of create_sliding_windows method.
 
-
 ### Main python function starts here. ###
+
+# Check whether the number of command line arguments is correct.
+if(len(sys.argv) != 5):
+    raise Exception('The number of command line arguments is not correct! Please provide 5 command line arguments in the following format:' + '\n'
+    + 'python3 ./src/average-prediction-error-calculation.py ./input/window.txt ./input/actual.txt ./input/predicted.txt ./output/comparison.txt')
+
+# Check whether the version of python is correct.
+# Please use Python 3!
+if sys.version_info[0] < 3:
+    raise Exception("Must be using Python 3")
 
 # Open the "window.txt" located in "./input" folder as the second command line argument.
 sliding_window_fd = open(sys.argv[1], 'r')
@@ -42,7 +51,7 @@ predicted_fd = open(sys.argv[3], 'r')
 predicted_dic = {}
 
 # This variable stores the minimum time in the "actual.txt" file. It is initialized with an arbitrarily big number.
-min_hour = 9999999
+min_hour = sys.maxsize
 
 # This variable stores the maximum time in the "actual.txt" file. It is initialized with zero.
 max_hour = 0

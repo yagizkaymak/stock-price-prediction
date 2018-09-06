@@ -42,7 +42,7 @@ predicted_fd = open(sys.argv[3], 'r')
 predicted_dic = {}
 
 # This variable stores the minimum time in the "actual.txt" file. It is initialized with an arbitrarily big number.
-min_hour = 9999999
+min_hour = sys.maxsize
 
 # This variable stores the maximum time in the "actual.txt" file. It is initialized with zero.
 max_hour = 0
@@ -154,7 +154,9 @@ for current_window in window_generator:
     # Get the sliding window end time to otput to "comparison.txt"
     sliding_window_end = int(current_window[sliding_window_range - 1])
 
+    # Write the output with a pipe char delimited format to "comparison.txt"
     comparison_fd.write(str(sliding_window_start) + '|' + str(sliding_window_end) + '|' + str(average) + '\n')
+# end for loop
 
-
+# Close the "comparison.txt" file.
 comparison_fd.close()
