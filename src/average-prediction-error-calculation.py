@@ -7,7 +7,7 @@ import sys # This library is used to get the command line arguments when the app
 def create_sliding_windows(input_list, stride=4):
     iterator = iter(input_list)
     window = []
-    
+
     for index in range(0, stride):
         window.append(next(iterator))
     yield window
@@ -143,11 +143,11 @@ for current_window in window_generator:
 
     # Use a temporary total variable to store the total value of
     # the absolute stock price differences in a particular sliding window.
-    temp_total = 0.0
+    temp_total = 0.00
 
     # Use an average variable to store the average value of
     # the absolute stock price differences in a particular sliding window.
-    average = 0.0
+    average = 0.00
 
     # Calculate the total price difference in a particular sliding window
     for i in range(0, len(current_window)):
@@ -155,7 +155,7 @@ for current_window in window_generator:
     # end for
 
     # Calculate the average of the sliding window and round it to two decimal points.
-    average = round(temp_total / len(current_window), 2)
+    average = '{:.2f}'.format(round(temp_total / len(current_window), 2))
 
     # Get the sliding window start time to otput to "comparison.txt"
     sliding_window_start = int(current_window[0])
