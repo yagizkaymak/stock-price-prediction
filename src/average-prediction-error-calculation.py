@@ -7,7 +7,7 @@ import sys # This library is used to get the command line arguments when the app
 def create_sliding_windows(input_list, stride=4):
     iterator = iter(input_list)
     window = []
-
+    
     for index in range(0, stride):
         window.append(next(iterator))
     yield window
