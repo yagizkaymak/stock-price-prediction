@@ -1,1 +1,1 @@
-This directory is where we would expect your program to write the requested output files.
+This is the directory where the output file created by the code is stored.

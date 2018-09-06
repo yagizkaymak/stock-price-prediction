@@ -1,5 +1,5 @@
 #!/bin/bash
 #
-# Use this shell script to compile (if necessary) your code and then execute it. Below is an example of what might be found in this file if your program was written in Python
+# This shell script runs the code developed by Yagiz Kaymak using Python 3 for the prediction validation project.
 #
-python3 ./src/prediction-validation.py ./input/window.txt ./input/actual.txt ./input/predicted.txt ./output/comparison.txt
+python3 ./src/average-prediction-error-calculation.py ./input/window.txt ./input/actual.txt ./input/predicted.txt ./output/comparison.txt
