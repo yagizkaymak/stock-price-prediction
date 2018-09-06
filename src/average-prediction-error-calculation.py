@@ -118,6 +118,7 @@ for line in predicted_fd:
     # end of outer if
 # end of for loop
 
+
 # Close the "predicted.txt" file.
 predicted_fd.close()
 
