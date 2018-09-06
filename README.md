@@ -6,6 +6,7 @@
 1. [Running The Code](README.md#running)
 1. [Test Cases](README.md#running)
 1. [Computational Complexity](README.md#complexity)
+1. [Caveat](README.md#caveat)
 
 
 ## Copyright
@@ -61,3 +62,6 @@ The second loop iterates through the lines of "predicted.txt". Therefore, the co
 complexity of the second loop is O(p), if there are "p" number of rows in "predicted.txt". Note that (a >= p).
 The last loop iterates through the hour (i.e., time) values and it has an inner loop that iterates over the time range  (i.e., stride) of each sliding window. Therefore, the computational complexity of the last loop is O(hs), if there are "h" number of hours stock recordings is "actual.txt" and the stride value in the "window.txt" is s.
 So, the total computational complexity of the code is O(a) + O(p) + O(hs).
+
+## Caveat
+Because of the some floating point operations, such as average calculations, and rounding operations in the code, the code does not pass the test cases.
