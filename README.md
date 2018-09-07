@@ -1,5 +1,5 @@
 # Table of Contents
-1. [Introduction](README.md#author)
+1. [Author](README.md#author)
 1. [Introduction](README.md#introduction)
 1. [Input](README.md#input)
 1. [Output](README.md#output)
