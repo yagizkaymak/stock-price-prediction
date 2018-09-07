@@ -176,8 +176,6 @@ for current_window in window_generator:
         if(len(hour_keyed_dic[current_window[i]]) > 0):
             match_found = True
     # end for
-
-    # Round the temporary total up to 2 decimal points.
     temp_total = round(temp_total, 2)
 
     # Calculate the average of the sliding window and round it to two decimal points.

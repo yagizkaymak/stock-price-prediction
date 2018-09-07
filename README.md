@@ -64,4 +64,5 @@ The last loop iterates through the hour (i.e., time) values and it has an inner 
 So, the total computational complexity of the code is O(a) + O(p) + O(hs).
 
 ## Caveat
-Because of the some floating point operations, such as average calculations, and rounding operations in the code, the code does not pass the test cases.
+Because of the average calculation, which outputs a float number, and the rounding operation of the average value, the code does not pass the test cases provided by the Insight Institute.
+There is only a +/-0.01 error for some sliding windows.
