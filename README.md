@@ -15,13 +15,13 @@ The code is also accessible online by using the following link:
 https://yagizkaymak@bitbucket.org/yagizkaymak/stock-price-prediction
 
 ## Introduction
-This Python code calculates an average error of the differences between the actual and the predicted stock prices.
+This Python code calculates an average error of the stock price differences for a given time range using the actual and predicted prices of the stocks.
 
-Two different files, one (actual.txt) provides the actual value of each stock every hour and the second (predicted.txt) lists the predicted value of various stocks at a certain hour during the same time period.
+"actual.txt" is a time-ordered file listing the actual value of stocks at a given hour.
+"predicted.txt" is a time-ordered file of the predicted value of certain stocks at a given hour.
+"window.txt" holds a single integer value denoting the window size (in hours) for which you must calculate the average error.
 
-This code obtains the average error by calculating the average difference between the actual stock prices and the predicted values over a specified sliding time window.
-
-Please refer to in-line comments in "average-prediction-error-calculation.py" file for further details of the implementation.
+Please refer to in-line comments in "./src/average-prediction-error-calculation.py" file for further details of the implementation.
 
 ## Input
 Three input files can be found in "input" folder with the file names of "actual.txt", "predicted.txt", and "window.txt".
@@ -33,9 +33,12 @@ Each file has pipe-character-delimited lines in the following format: time|ticke
 
 
 ## Output
-The code outputs a file consisting of pipe-character-delimited lines and store it in the "output" folder with file name of "comparison.txt".
+The code outputs a file consisting of pipe-character-delimited lines. The output file is saved to "output" folder with file name of "comparison.txt".
 
 The format of the file is as follows: start_time_of_the_sliding_window|end_time_of_the_sliding_window|absolute_average_price_difference_in_the_sliding_window
+
+If the sliding window value given in "window.txt" is equal to one, the output file only includes the hourly average errors. Therefore, its format becomes:
+hour|absolute_average_price_difference_in_the_sliding_window
 
 
 ## Running The Code
@@ -45,7 +48,7 @@ In order to run the code provided in this repository, please use the shell scrip
 
 
 ## Test Cases
-Two test cases to test the code can be found in "insight_testsuite/tests" folder. "test_1" is the test case created by Insight Institute. "my_test" folder includes the test case created by Yagiz Kaymak.
+Five test cases to test the code can be found in "insight_testsuite/tests" folder. "test_1" is the test case created by Insight Institute. "my_test_x" folders are the test cases created by Yagiz Kaymak.
 
 To run the test cases please run "./run_tests.sh" shell script in the "insight_testsuite/tests" folder.
 
