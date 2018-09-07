@@ -35,6 +35,10 @@ sliding_window_fd = open(sys.argv[1], 'r')
 # Read the window value in "window.txt" file and convert the value to integer.
 sliding_window_range = int(sliding_window_fd.read())
 
+# Check if the sliding window range value in "window.txt" is correct.
+if sliding_window_range <= 0 or not isinstance(sliding_window_range, int):
+    raise Exception("Sliding window range in window.txt must be a positive integer")
+
 # We are done with "window.txt" file. It is closed here.
 sliding_window_fd.close()
 
@@ -145,6 +149,10 @@ hours = range(min_hour, max_hour + 1)
 # Output file name is given as the last command line argument.
 comparison_fd = open(sys.argv[4], 'w')
 
+# Correct if the the value in "window.txt" is larger than the total hours in the "actual.txt".
+if sliding_window_range > (max_hour - min_hour + 1):
+    sliding_window_range = max_hour - min_hour + 1
+
 # Get sliding window generator by calling "create_sliding_windows" method.
 window_generator = create_sliding_windows(hours, stride = sliding_window_range)
 
@@ -176,6 +184,8 @@ for current_window in window_generator:
         if(len(hour_keyed_dic[current_window[i]]) > 0):
             match_found = True
     # end for
+
+    # Round the temporary total up to 2 decimal points.
     temp_total = round(temp_total, 2)
 
     # Calculate the average of the sliding window and round it to two decimal points.
@@ -195,7 +205,10 @@ for current_window in window_generator:
     sliding_window_end = int(current_window[sliding_window_range - 1])
 
     # Write the output with a pipe char delimited format to "comparison.txt"
-    comparison_fd.write(str(sliding_window_start) + '|' + str(sliding_window_end) + '|' + formatted_average + '\n')
+    if(sliding_window_start == sliding_window_end):
+        comparison_fd.write(str(sliding_window_start) + '|' + formatted_average + '\n')
+    else:
+        comparison_fd.write(str(sliding_window_start) + '|' + str(sliding_window_end) + '|' + formatted_average + '\n')
 # end for loop
 
 # Close the "comparison.txt" file.
