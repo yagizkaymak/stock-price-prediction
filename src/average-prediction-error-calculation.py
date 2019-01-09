@@ -17,6 +17,7 @@ def create_sliding_windows(input_list, stride=4):
         yield window
 # end of create_sliding_windows method.
 
+
 ### Main python function starts here. ###
 
 # Check whether the number of command line arguments is correct.
